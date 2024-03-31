@@ -25,3 +25,11 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## About the program
+
+This program is a re-do of my old [Generador de datos en Java](https://github.com/NexWan/Generador-de-datos)
+I'm using angular and faker js so credit to them.
+This program is going to need to be run at local, since I really don't want to pay to host this.
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fanimemangastore.com%2Fwp-content%2Fuploads%2F2022%2F01%2Fgarfield-stuffed-animals-768x768.jpg&f=1&nofb=1&ipt=a4774f15392ea7cec1132d8a2969e7c7ab0ed96222990c0be726edd41140711c&ipo=images"></img>
