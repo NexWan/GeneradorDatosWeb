@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet, ActivatedRoute } from '@angular/router';
 import { RandomDataComponent } from './utils/random-data/random-data.component';
 import { NgFor } from '@angular/common';
-import { query } from '@angular/animations';
+import { HeaderComponent } from './layer/header/header.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RandomDataComponent, NgFor, RouterLink, RouterLinkActive],
+  imports: [RouterOutlet, RandomDataComponent, NgFor, RouterLink, RouterLinkActive, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
