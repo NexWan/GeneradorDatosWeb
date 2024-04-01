@@ -1,0 +1,19 @@
+<div class="container flex max-w-2xl mx-auto bg-red-500 flex-col p-10">
+    <div class="mx-auto my-2">
+        <label for="inputname" class="block text-gray-800 font-semibold text-sm"
+          >Cantidad</label
+        >
+        <div class="mt-2">
+          <input
+            type="text"
+            name="inputname"
+            id="amount"
+            class="block w-56 rounded-md py-1.5 px-2 ring-1 ring-inset ring-gray-400 focus:text-gray-800"
+          />
+        </div>
+        <label class="pt-1 block text-gray-500 text-sm">Cantidad de datos a generar</label>
+      </div>
+    <button class="bg-white shadow-2xl w-36 rounded-xl h-10 mx-auto hover:scale-105 transition-all ease-in-out active:scale-90" (click)="generateData()">Generar datos</button>
+
+    <router-outlet></router-outlet>
+</div>
