@@ -32,4 +32,31 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 This program is a re-do of my old [Generador de datos en Java](https://github.com/NexWan/Generador-de-datos)
 I'm using angular and faker js so credit to them.
 This program is going to need to be run at local, since I really don't want to pay to host this.
-<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fanimemangastore.com%2Fwp-content%2Fuploads%2F2022%2F01%2Fgarfield-stuffed-animals-768x768.jpg&f=1&nofb=1&ipt=a4774f15392ea7cec1132d8a2969e7c7ab0ed96222990c0be726edd41140711c&ipo=images"></img>
+
+If you wish to test the service as it's being developed you can do the following:
+
+Clone the repo in any folder
+```bash
+git clone github.com/nexwan/GeneradorDatosWeb
+```
+Set yourself in that directory
+```bash
+cd your/path/to/GeneradorDatosWeb/
+```
+Once here you'll need to install the node modules
+(Oh btw, you need node js)
+```bash
+npm install
+```
+Now just run the following command
+```bash
+ng serve
+```
+In case the last command didn't work try the following
+```bash
+npm install -g @angular/cli
+```
+
+Once this project is finished I'm gonna make a python installer, that way It'll be easier to test the app.
+
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fanimemangastore.com%2Fwp-content%2Fuploads%2F2022%2F01%2Fgarfield-stuffed-animals-768x768.jpg&f=1&nofb=1&ipt=a4774f15392ea7cec1132d8a2969e7c7ab0ed96222990c0be726edd41140711c&ipo=images" width=300></img>

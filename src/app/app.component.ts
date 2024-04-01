@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet, ActivatedRoute } from '@angular/router';
 import { RandomDataComponent } from './utils/random-data/random-data.component';
-import { NgFor } from '@angular/common';
+import { NgFor} from '@angular/common';
 import { HeaderComponent } from './layer/header/header.component';
 import { HomeComponent } from './home/home.component';
+import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
