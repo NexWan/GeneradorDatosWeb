@@ -1,6 +1,5 @@
 import { CommonModule, NgFor } from '@angular/common';
 import { Component, Input, OnInit,   } from '@angular/core';
-import { faker } from '@faker-js/faker';
 import { ActivatedRoute } from '@angular/router';
 import { LoadingService } from '../../loading.service';
 
@@ -20,21 +19,9 @@ interface User {
 })
 
 export class RandomDataComponent implements OnInit{
-  genUser = (): User => ({
-    name: faker.person.firstName(),
-    email: faker.internet.email(),
-    phone: faker.phone.number(),
-    address: faker.location.streetAddress()
-  });
-
   textArea:HTMLTextAreaElement = (<HTMLTextAreaElement>(document.getElementById("textArea")));;
-
-
   users: User[] = [];
-
   constructor(private route: ActivatedRoute, private loadingService: LoadingService) {}
-
-
   @Input('amount') amount: any = 5;
   completed:boolean = false;
 
@@ -54,7 +41,7 @@ export class RandomDataComponent implements OnInit{
       worker.postMessage({ amount: this.amount, elements: activeElements});
       worker.onmessage = ({ data }) => {
         this.users = data;
-        this.textArea.value = this.users.map(user => `${user.name} ${user.email} ${user.address} ${user.phone}`).join('\n');
+        this.textArea.value = this.users.map((user: User) => `${user.name} ${user.email} ${user.address} ${user.phone.replace(/\D/g, '')}`).join('\n');
         this.loadingService.setLoading(false);
       };
     });
