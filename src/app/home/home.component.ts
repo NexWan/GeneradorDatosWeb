@@ -16,8 +16,8 @@ export class HomeComponent {
 
   amount = 0;
   
-  generateData(){
+  async generateData(){
     this.amount = parseInt((<HTMLInputElement>document.getElementById('amount')).value);
-    this.router.navigate(['/random-data'], { queryParams: { amount: this.amount } });
+    await this.router.navigate(['/random-data'], { queryParams: { amount: this.amount } });
   }
 }

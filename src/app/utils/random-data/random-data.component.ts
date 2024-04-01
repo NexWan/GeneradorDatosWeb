@@ -31,14 +31,28 @@ export class RandomDataComponent implements OnInit{
   constructor(private route: ActivatedRoute) {}
 
   @Input('amount') amount: any = 5;
-
+  completed:boolean = false;
 
   ngOnInit():void {
-    this.route.paramMap.subscribe(params => {
+    console.log(this.route.queryParamMap);
+    
+    this.route.queryParamMap.subscribe(async params => {
+      console.log(params);
+      
       const amountParam = params.get('amount');
+      console.log(amountParam)
       this.amount = amountParam ? +amountParam : this.amount;
       this.users = Array.from({length: this.amount}, this.genUser);
-      console.log(this.users);
+      this.completed = await genData(this.users)
     });
+
+    async function genData(users:User[]){
+      let i = 0;
+      for(let User of users){
+        (<HTMLTextAreaElement>(document.getElementById("textArea"))).value+= (User.name + " ")
+        console.log(i++);
+      }
+      return true;
+    }
   }
 }
