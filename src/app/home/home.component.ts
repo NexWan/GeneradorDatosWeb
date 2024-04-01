@@ -2,6 +2,7 @@ import { Component, } from '@angular/core';
 import { Router, ActivatedRoute, RouterOutlet } from '@angular/router';
 import { LoadingService } from '../loading.service';
 import { CommonModule } from '@angular/common';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -16,14 +17,17 @@ export class HomeComponent {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private cdr: ChangeDetectorRef
     ) {
       this.loadingService.loading$.subscribe(loading => {
         this.isLoading = loading;
+        this.cdr.detectChanges();
       });
     }
   elements:string[] = ["Nombre", "Email", "Telefono", "Direccion"];
   amount = 0;
+  activeElements:string[] = [];
 
 
   validateInput(evt:KeyboardEvent) {
@@ -41,6 +45,14 @@ export class HomeComponent {
       alert("Por favor ingrese un numero mayor a 0");
       return;
    } 
-    await this.router.navigate(['/random-data'], { queryParams: { amount: this.amount } });
+    this.activeElements = this.elements.filter((element, index) => {
+      const checkbox:HTMLInputElement = (<HTMLInputElement>document.getElementById(element));
+      return checkbox.checked;
+    });
+    if(this.activeElements.length < 1){
+      alert("Por favor seleccione al menos un elemento");
+      return;
+    }    
+    await this.router.navigate(['/random-data'], { queryParams: { amount: this.amount, els:this.activeElements } });
   }
 }

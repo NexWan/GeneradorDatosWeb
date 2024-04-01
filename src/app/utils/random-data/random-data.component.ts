@@ -41,15 +41,21 @@ export class RandomDataComponent implements OnInit{
   ngOnInit():void {   
     this.textArea = (<HTMLTextAreaElement>(document.getElementById("textArea")));
     this.route.queryParamMap.subscribe(async params => {
+      console.log(params.getAll('els'));
       this.loadingService.setLoading(true);
       this.textArea.value = ""
       const amountParam = params.get('amount');
       this.amount = amountParam ? +amountParam : this.amount;
+      const posElements = ["Nombre", "Email", "Telefono", "Direccion"]
+      const elements = params.getAll('els');
+      const activeElements = posElements.map(posEl => elements.includes(posEl));
+      console.log(activeElements);
+      
       const worker = new Worker(new URL('./data-generator.worker', import.meta.url));
-      worker.postMessage({ amount: this.amount });
+      worker.postMessage({ amount: this.amount, elements: activeElements});
       worker.onmessage = ({ data }) => {
         this.users = data;
-        this.textArea.value = this.users.map(user => `${user.name} ${user.email}`).join('\n');
+        this.textArea.value = this.users.map(user => `${user.name} ${user.email} ${user.address} ${user.phone}`).join('\n');
         this.loadingService.setLoading(false);
       };
     });
