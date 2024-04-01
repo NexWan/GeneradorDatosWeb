@@ -4,7 +4,6 @@ import { RandomDataComponent } from './utils/random-data/random-data.component';
 import { NgFor} from '@angular/common';
 import { HeaderComponent } from './layer/header/header.component';
 import { HomeComponent } from './home/home.component';
-import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -15,4 +14,5 @@ import { OnInit } from '@angular/core';
 })
 export class AppComponent {
   title = 'genDatos';
+  
 }
