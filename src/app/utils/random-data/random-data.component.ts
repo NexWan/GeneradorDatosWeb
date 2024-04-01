@@ -50,7 +50,6 @@ export class RandomDataComponent implements OnInit{
       const elements = params.getAll('els');
       const activeElements = posElements.map(posEl => elements.includes(posEl));
       console.log(activeElements);
-      
       const worker = new Worker(new URL('./data-generator.worker', import.meta.url));
       worker.postMessage({ amount: this.amount, elements: activeElements});
       worker.onmessage = ({ data }) => {
