@@ -19,9 +19,9 @@ function genUser({n, e, p, a}: {n: boolean, e: boolean, p: boolean, a: boolean})
   let email = "";
   let phone = "";
   let address = "";
-  if(n == true) name = faker.person.firstName();
-  if(e == true) email = faker.internet.email();
-  if(p == true) phone = faker.phone.number();
-  if(a == true) address = faker.location.streetAddress();
+  if(n) name = faker.person.firstName();
+  if(e) email = faker.internet.email();
+  if(p) phone = faker.phone.number();
+  if(a) address = faker.location.streetAddress();
   return {name, email, phone, address};
 }

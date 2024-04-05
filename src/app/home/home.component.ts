@@ -36,8 +36,7 @@ export class HomeComponent {
   }
   
   async generateData(){
-    const prueba:HTMLInputElement = (<HTMLInputElement>document.getElementById('Nombre'));
-    console.log(prueba.checked);
+    console.log(this.router.url);
     
     this.amount = parseInt((<HTMLInputElement>document.getElementById('amount')).value);
 
@@ -53,6 +52,6 @@ export class HomeComponent {
       alert("Por favor seleccione al menos un elemento");
       return;
     }    
-    await this.router.navigate(['/random-data'], { queryParams: { amount: this.amount, els:this.activeElements } });
+    await this.router.navigate(['/random-data'], { queryParams: { amount: this.amount, els:this.activeElements }});
   }
 }
